@@ -1,23 +1,18 @@
 package OAuth2::Provider;
 
 use 5.012;
-use Mouse;
+use Any::Moose;
 
-# ABSTRACT: 
+# ABSTRACT: A generic OAuth2 Provider
 
 # VERSION
-
-use Data::Dump;
 
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
-
-    use Some::Module;
-    use Data::Dump 'dump';
+OAuth2 clients are plenty but provider are harder to find than they
+should be. This provider is written in a way that hopefully makes it
+easy to tweak for your environment.
 
 =head1 ATTRIBUTES
 
@@ -33,14 +28,95 @@ has 'attr' => (
 
 =head1 SUBROUTINES/METHODS
 
-=head2 method
+General authentocator implementing all authentication mechanisms
+
+=head2 authenticator
 
 =cut
 
-sub method {
-    my ($self) = @_;
+sub authenticator { }
+
+
+=head2 get_client_by_id
+
+Get a client definition by client_id
+
+=cut
+
+sub get_client_by_id { }
+
+
+
+=head2 validate_by_token
+
+Validate a token, check it for expiration and return the associated
+info for the token. This accepts a optional second parameter if the
+requests is for a refresh_token.
+
+=cut
+
+sub validate_by_token { }
+
+
+=head2 validate_user_by_username
+
+Validate a user/password combination
+
+=cut
+
+sub validate_user_by_username { }
+
+
+=head2 get_access_token
+
+Get a access_token from the storage plugin
+
+=cut
+
+sub get_access_token { }
+
+
+=head2 create_access_token
+
+Create access token based on the client information. This has a optional
+second parameter if the token are based off a refresh_token
+
+=cut
+
+sub create_access_token {
+    #body ...
 }
 
+
+=head2 to_bearer_token
+
+Convert a token to a Bearer Token
+
+=cut
+
+sub to_bearer_token { }
+
+
+=head2 to_mactoken
+
+Convert a token to a MAC token
+
+=cut
+
+sub to_mactoken { }
+
+=head2 error
+
+General error handler
+
+=cut
+
+sub error {
+    my($self, $error) = @_;
+
+    warn $error;
+    return;
+}
 
 
 =head1 BUGS
