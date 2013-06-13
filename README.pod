@@ -42,6 +42,10 @@ Validate a user/password combination
 
 Get a access_token from the storage plugin
 
+=head2 get_refresh_token
+
+Get a AccessToken by token
+
 =head2 create_access_token
 
 Create access token based on the client information. This has a optional
@@ -51,7 +55,7 @@ second parameter if the token are based off a refresh_token
 
 Convert a token to a Bearer Token
 
-=head2 to_mactoken
+=head2 to_mac_token
 
 Convert a token to a MAC token
 

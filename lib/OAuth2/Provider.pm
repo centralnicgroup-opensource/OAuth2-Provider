@@ -75,6 +75,13 @@ Get a access_token from the storage plugin
 
 sub get_access_token { }
 
+=head2 get_refresh_token
+
+Get a AccessToken by token
+
+=cut
+
+sub get_refresh_token { }
 
 =head2 create_access_token
 
@@ -97,13 +104,13 @@ Convert a token to a Bearer Token
 sub to_bearer_token { }
 
 
-=head2 to_mactoken
+=head2 to_mac_token
 
 Convert a token to a MAC token
 
 =cut
 
-sub to_mactoken { }
+sub to_mac_token { }
 
 =head2 error
 
