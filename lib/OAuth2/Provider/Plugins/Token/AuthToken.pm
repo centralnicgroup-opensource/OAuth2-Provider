@@ -32,7 +32,7 @@ around 'get_access_token' => sub {
 around 'get_refresh_token' => sub {
     my ($orig, $self, $token) = @_;
 
-    return $self->db_get($token);
+    # find refresh token in couchdb
 };
 
 around 'create_access_token' => sub {

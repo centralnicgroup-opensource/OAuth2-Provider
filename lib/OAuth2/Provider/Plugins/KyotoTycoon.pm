@@ -1,4 +1,4 @@
-package OAuth2::Provider::Plugin::Token;
+package OAuth2::Provider::Plugin::KyotoTycoon;
 
 use 5.012;
 use Any::Moose 'Role';
@@ -64,7 +64,6 @@ has 'tycoon_timeout' => (
 has 'tycoon' => (
     is       => 'rw',
     isa      => 'Cache::KyotoTycoon',
-    required => 1,
     builder  => '_connect_tycoon',
 );
 
